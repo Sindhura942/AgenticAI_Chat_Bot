@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # AgenticAI ChatBot – AI News Explorer with LangGraph
 
 ![Python](https://img.shields.io/badge/Python-3.11-blue)
@@ -234,3 +235,24 @@ For issues, questions, or suggestions, please open an issue on GitHub.
 ---
 
 **Made with ❤️ using LangGraph, Streamlit, and AI**
+=======
+---
+title: AgenticAI Chat Bot
+emoji: 🚀
+colorFrom: red
+colorTo: red
+sdk: docker
+app_port: 8501
+tags:
+- streamlit
+pinned: false
+short_description: Agentic AI chatbot with memory and toolUsage
+---
+
+# Welcome to Streamlit!
+
+Edit `/src/streamlit_app.py` to customize this app to your heart's desire. :heart:
+
+If you have any questions, checkout our [documentation](https://docs.streamlit.io) and [community
+forums](https://discuss.streamlit.io).
+>>>>>>> 2ef0babec8e22d3b3ff6f3f9c1725442a41b7faa
