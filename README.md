@@ -246,11 +246,11 @@ MIT License - feel free to use this project for personal or commercial purposes.
 ## 📧 Support
 For issues, questions, or suggestions, please open an issue on GitHub.
 
----
+
 
 **Made with ❤️ using LangGraph, Streamlit, and AI**
-=======
----
+
+
 title: AgenticAI Chat Bot
 emoji: 🚀
 colorFrom: red
@@ -261,7 +261,7 @@ tags:
 - streamlit
 pinned: false
 short_description: Agentic AI chatbot with memory and toolUsage
----
+
 
 # Welcome to Streamlit!
 
