@@ -3,16 +3,12 @@ title: Agentic AI Chat Bot
 emoji: 🤖
 colorFrom: green
 colorTo: blue
-sdk: streamlit        # change to gradio if your app uses Gradio
-sdk_version: "1.30.0"  # your Streamlit/Gradio version
+sdk: streamlit
+sdk_version: "1.30.0"
 python_version: "3.10"
 app_file: app.py
 pinned: false
 ---
-
-
-
-
 # AgenticAI ChatBot – AI News Explorer with LangGraph
 
 ![Python](https://img.shields.io/badge/Python-3.11-blue)
