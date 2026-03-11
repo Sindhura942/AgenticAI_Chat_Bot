@@ -68,7 +68,7 @@ class LoadStreamlitUI:
                 with st.sidebar:
                     time_frame = st.selectbox(
                         "📅 Select Time Frame",
-                        ["Daily", "Weekly", "Monthly","Yearly"],
+                        ["Daily", "Weekly", "Monthly"],
                         index=0
                     )
                 if st.button("🔍 Fetch Latest AI News", use_container_width=True):
