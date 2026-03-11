@@ -123,9 +123,9 @@ pip install -r requirements.txt
 4. **Set up environment variables**
 Create a `.env` file in the project root:
 ```
-GROQ_API_KEY=your_groq_key_here
-OPENAI_API_KEY=your_openai_key_here
-TAVILY_API_KEY=your_tavily_key_here
+GROQ_API_KEY = your_groq_api_key_here
+OPENAI_API_KEY = your_openai_api_key_here
+TAVILY_API_KEY = your_tavily_api_key_here
 ```
 
 5. **Run the application**
@@ -137,27 +137,38 @@ The app will open at `http://localhost:8501`
 
 ## 💡 Usage
 
-### AI News Explorer
-1. Select **LLM** (Groq or OpenAI)
-2. Select **Use Case**: "AI News"
-3. Choose **Time Frame**: Daily, Weekly, or Monthly
-4. Add **Tavily API Key**
-5. Click the fetch button
-6. Get AI news summary organized by date
+### 🔑 API Keys Setup
+Each user needs their **own API keys** to use the app. Get free API keys from:
 
-### Basic Chatbot
-- Start a conversation
-- Maintain context across multiple messages
-- Get intelligent responses
+- **Groq API** (Free tier available): https://console.groq.com
+  - Sign up and create an API key
+  - No credit card required for free tier
+  
+- **OpenAI API** (Paid, but affordable): https://platform.openai.com/api-keys
+  - Create an account and generate API key
+  - Set up billing
+  
+- **Tavily API** (Free tier available): https://tavily.com
+  - Sign up and get your API key
+  - Free tier includes search capabilities
 
-### Chatbot with Web Search
-- Ask questions
-- Bot automatically searches the web for answers
-- Get up-to-date information
+### Using on Hugging Face Spaces
+1. Visit: https://huggingface.co/spaces/mulpurisindhura942/AgenticAI_Chat_Bot
+2. In the **Streamlit UI**, you'll see input fields for:
+   - Select your LLM (Groq or OpenAI)
+   - Enter Tavily API Key
+3. Paste your own API keys in the input fields
+4. The app will use YOUR keys for YOUR API calls
+5. You pay for your own usage
 
-### Healthcare Assistant
-- Ask healthcare-related questions
-- Get specialized responses
+### Using Locally
+1. Create `.env` file with your keys:
+```
+GROQ_API_KEY=your_key_here
+OPENAI_API_KEY=your_key_here
+TAVILY_API_KEY=your_key_here
+```
+2. Run: `streamlit run app.py`
 
 ## 📊 Features Breakdown
 
