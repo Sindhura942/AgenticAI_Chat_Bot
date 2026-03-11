@@ -28,10 +28,21 @@ class LoadStreamlitUI:
             groq_models = self.config.get_groq_model_options()
             self.user_controls["selected_groq_model"] = st.selectbox("Select Groq Model", groq_models)
 
-            # Load API key from .env
+            # Load API key from .env, but allow user to enter their own
             self.user_controls["API_KEY_GROQ"] = os.environ.get("GROQ_API_KEY", "")
+            
+            # Let user enter their Groq API key in the UI
+            groq_api_input = st.text_input(
+                "🔑 Groq API Key",
+                value=self.user_controls["API_KEY_GROQ"],
+                type="password",
+                help="Get your free API key from https://console.groq.com"
+            )
+            if groq_api_input:
+                self.user_controls["API_KEY_GROQ"] = groq_api_input
+            
             if not self.user_controls["API_KEY_GROQ"]:
-                st.error("⚠️ GROQ_API_KEY not found in .env file")
+                st.info("ℹ️ Please enter your Groq API key (free at https://console.groq.com)")
 
             # ---------- OPENAI ----------
             st.subheader("OpenAI Settings")
@@ -39,10 +50,21 @@ class LoadStreamlitUI:
             openai_models = self.config.get_openai_model_options()
             self.user_controls["selected_openai_model"] = st.selectbox("Select OpenAI Model", openai_models)
 
-            # Load API key from .env
+            # Load API key from .env, but allow user to enter their own
             self.user_controls["API_KEY_OPENAI"] = os.environ.get("OPENAI_API_KEY", "")
+            
+            # Let user enter their OpenAI API key in the UI
+            openai_api_input = st.text_input(
+                "🔑 OpenAI API Key",
+                value=self.user_controls["API_KEY_OPENAI"],
+                type="password",
+                help="Get your API key from https://platform.openai.com/api-keys"
+            )
+            if openai_api_input:
+                self.user_controls["API_KEY_OPENAI"] = openai_api_input
+            
             if not self.user_controls["API_KEY_OPENAI"]:
-                st.error("⚠️ OPENAI_API_KEY not found in .env file")
+                st.info("ℹ️ Please enter your OpenAI API key (get it from https://platform.openai.com/api-keys)")
 
             # Usecase selection
             self.user_controls["selected_usecase"] = st.selectbox("Select Usecases", usecase_options)
