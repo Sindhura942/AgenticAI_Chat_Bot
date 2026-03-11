@@ -1,38 +1,236 @@
-git
-#### Project Overview
+# AgenticAI ChatBot – AI News Explorer with LangGraph
 
-This project demonstrates the creation of a stateful, tool-enabled AI agent using LangGraph and Llama 3. Unlike typical chatbots, this agent maintains memory across interactions, can reason, execute tasks, and use external tools dynamically, providing a real-world example of an agentic AI system.
+![Python](https://img.shields.io/badge/Python-3.11-blue)
+![LangGraph](https://img.shields.io/badge/LangGraph-Agent%20Framework-green)
+![Streamlit](https://img.shields.io/badge/Streamlit-Web%20App-red)
+![Deployment](https://img.shields.io/badge/Deployment-HuggingFace%20Spaces-purple)
+![License](https://img.shields.io/badge/License-MIT-yellow)
 
-The AgenticChatBot is deployed as a web application on Hugging Face Spaces, offering a live demo for recruiters and portfolio visitors.
+## 🎯 Overview
+AgenticAI ChatBot is an intelligent agentic AI application built with **LangGraph** and **LLMs** (Groq/OpenAI). It features multiple use cases including an advanced **AI News Explorer** that fetches, summarizes, and organizes AI news from around the world.
 
-Features
+The application is deployed as an interactive web app using **Streamlit** on **Hugging Face Spaces**, providing real-time access to AI news summaries.
 
-Stateful Conversations: Remembers context across multiple interactions.
+**🔗 Live Demo:** https://huggingface.co/spaces/mulpurisindhura942/AgenticAI_Chat_Bot
 
-Agentic Behavior: Can plan, reason, and act autonomously, including generating Python code dynamically.
+## ✨ Features
+- 📰 **AI News Explorer** - Fetch and summarize AI news (Daily/Weekly/Monthly)
+- 💬 **Stateful Conversations** - Maintain conversation memory across sessions
+- 🛠️ **Tool-Enabled AI Agent** - Dynamically use tools to complete tasks
+- 🧠 **Reasoning-Based Responses** - Advanced reasoning capabilities
+- ⚡ **High-Performance Inference** - Powered by Groq & OpenAI LLMs
+- 🏥 **Healthcare Chatbot** - Specialized healthcare assistance
+- 🌐 **Web Search Integration** - Real-time web search with Tavily API
+- 📊 **Multi-LLM Support** - Switch between Groq and OpenAI models
 
-High-Performance Inference: Utilizes Llama 3 and Groq acceleration for low-latency responses.
+## 🛠️ Tech Stack
+- **LLM:** Groq (whisper-large-v3-turbo) / OpenAI (gpt-4o-mini)
+- **Framework:** LangGraph + LangChain
+- **Programming Language:** Python 3.11
+- **UI:** Streamlit
+- **Deployment:** Hugging Face Spaces
+- **News API:** Tavily Search API
+- **Web Search:** Tavily API
 
-Modular Codebase: Production-ready, reusable Python code (no messy notebooks).
+## 🏗️ Architecture
 
-Cloud Deployment: Streamlit app hosted on Hugging Face Spaces with a shareable live demo link.
+```
+User Input (Streamlit UI)
+        ↓
+LangGraph Workflow Manager
+        ↓
+LLM (Groq/OpenAI)
+        ↓
+Tool Execution & Reasoning
+        ↓
+Response with Memory
+```
 
-Technologies Used
+## 📁 Project Structure
 
-AI/LLM: Llama 3, LangGraph
+```
+AINEWSAgentic/
+├── app.py                          # Main Streamlit application
+├── requirements.txt                # Python dependencies
+├── README.md                       # Documentation
+├── .env                           # Environment variables (not in repo)
+├── AINews/                        # Generated news summaries
+│   ├── daily_summary.md
+│   ├── weekly_summary.md
+│   └── monthly_summary.md
+└── src/
+    └── langgraphagenticai/
+        ├── main.py                # Main application logic
+        ├── LLMs/
+        │   ├── groqllm.py         # Groq LLM integration
+        │   └── openaillm.py       # OpenAI LLM integration
+        ├── nodes/
+        │   ├── ai_news_node.py    # AI News fetching & summarization
+        │   ├── basic_chatbot_node.py
+        │   ├── chatbot_with_tool_node.py
+        │   └── healthcare_node.py
+        ├── graph/
+        │   └── graph_builder.py   # LangGraph workflow builder
+        ├── tools/
+        │   └── search_tool.py     # Web search integration
+        ├── ui/
+        │   └── streamlitui/
+        │       ├── loadui.py      # UI components
+        │       └── display_result.py
+        └── state/
+            └── state.py           # State management
+```
 
-Frameworks: Streamlit, Hugging Face Spaces
+## 🚀 Getting Started
 
-Programming: Python (modular, clean architecture)
+### Prerequisites
+- Python 3.11+
+- API Keys:
+  - **Groq API Key** (free at https://console.groq.com)
+  - **OpenAI API Key** (at https://platform.openai.com)
+  - **Tavily API Key** (free at https://tavily.com)
 
-Deployment: Cloud hosting (Hugging Face Spaces)
+### Installation
 
-Learning Outcomes
+1. **Clone the repository**
+```bash
+git clone https://github.com/Sindhura942/AgenticAI_Chat_Bot.git
+cd AINEWSAgentic
+```
 
-Built a stateful agent capable of maintaining context.
+2. **Create a virtual environment**
+```bash
+python -m venv myvenv
+source myvenv/bin/activate  # On Windows: myvenv\Scripts\activate
+```
 
-Implemented agentic AI workflows with reasoning and tool usage.
+3. **Install dependencies**
+```bash
+pip install -r requirements.txt
+```
 
-Learned modular Python architecture for production-grade AI apps.
+4. **Set up environment variables**
+Create a `.env` file in the project root:
+```
+GROQ_API_KEY=your_groq_key_here
+OPENAI_API_KEY=your_openai_key_here
+TAVILY_API_KEY=your_tavily_key_here
+```
 
-Deployed a real-world AI project with a live URL for portfolio demonstration. 
+5. **Run the application**
+```bash
+streamlit run app.py
+```
+
+The app will open at `http://localhost:8501`
+
+## 💡 Usage
+
+### AI News Explorer
+1. Select **LLM** (Groq or OpenAI)
+2. Select **Use Case**: "AI News"
+3. Choose **Time Frame**: Daily, Weekly, or Monthly
+4. Add **Tavily API Key**
+5. Click the fetch button
+6. Get AI news summary organized by date
+
+### Basic Chatbot
+- Start a conversation
+- Maintain context across multiple messages
+- Get intelligent responses
+
+### Chatbot with Web Search
+- Ask questions
+- Bot automatically searches the web for answers
+- Get up-to-date information
+
+### Healthcare Assistant
+- Ask healthcare-related questions
+- Get specialized responses
+
+## 📊 Features Breakdown
+
+### AI News Explorer
+- Fetches latest AI news from global sources
+- Summarizes articles using LLM
+- Saves summaries as markdown files
+- Supports Daily, Weekly, Monthly summaries
+- Organizes news by date (latest first)
+
+### LangGraph Integration
+- Stateful workflow management
+- Multi-node graph architecture
+- Dynamic tool integration
+- Conversation memory management
+
+### Multi-LLM Support
+- **Groq**: Ultra-fast inference (recommended for speed)
+- **OpenAI**: Advanced reasoning (gpt-4o-mini)
+
+## 🔐 Security
+- API keys stored in `.env` (not in repo)
+- `.gitignore` protects sensitive files
+- No hardcoded credentials
+
+## 📝 Example Output
+
+### AI News Summary
+```
+# Daily AI News Summary
+
+### [2026-03-11]
+- India's communications minister highlights how AI is evolving networks...
+  (https://example.com/news1)
+
+### [2026-03-10]
+- New breakthrough in AI safety announced...
+  (https://example.com/news2)
+```
+
+## 🌐 Deployment
+
+### Hugging Face Spaces
+The app is deployed on Hugging Face Spaces: 
+**[https://huggingface.co/spaces/mulpurisindhura942/AgenticAI_Chat_Bot](https://huggingface.co/spaces/mulpurisindhura942/AgenticAI_Chat_Bot)**
+
+To deploy your own:
+1. Create a Hugging Face Space (Streamlit SDK)
+2. Add your repository as a Git remote
+3. Push your code
+4. Add environment variables in Space settings
+
+## 🤝 Contributing
+Contributions are welcome! Feel free to:
+- Report bugs
+- Suggest features
+- Submit pull requests
+
+## 📚 Learning Outcomes
+- Build agentic AI systems with LangGraph
+- Integrate multiple LLMs
+- Create stateful conversational agents
+- Deploy AI apps to production
+- Work with external APIs and tools
+
+## 🔮 Future Improvements
+- [ ] Multi-agent collaboration
+- [ ] Retrieval-Augmented Generation (RAG)
+- [ ] Vector database for memory
+- [ ] Voice input/output
+- [ ] Custom knowledge base integration
+- [ ] Advanced analytics dashboard
+
+## 📄 License
+MIT License - feel free to use this project for personal or commercial purposes.
+
+## 👨‍💻 Author
+**Sindhura Bhavya Mulpuri**
+- GitHub: [@Sindhura942](https://github.com/Sindhura942)
+- Hugging Face: [@mulpurisindhura942](https://huggingface.co/mulpurisindhura942)
+
+## 📧 Support
+For issues, questions, or suggestions, please open an issue on GitHub.
+
+---
+
+**Made with ❤️ using LangGraph, Streamlit, and AI**
