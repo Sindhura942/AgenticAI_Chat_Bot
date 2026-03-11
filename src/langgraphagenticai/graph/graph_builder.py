@@ -79,19 +79,6 @@ class GraphBuilder:
         self.graph_builder.add_edge("save_result", END)
 
 
-    def healthcare_build_graph(self):
-        """
-        Builds graph for healthcare chatbot
-        """
-        from src.langgraphagenticai.nodes.healthcare_node import HealthcareNode
-        
-        obj_healthcare = HealthcareNode(self.llm)
-        healthcare_node = obj_healthcare.create_healthcare_chatbot()
-        
-        self.graph_builder.add_node("healthcare", healthcare_node)
-        self.graph_builder.add_edge(START, "healthcare")
-        self.graph_builder.add_edge("healthcare", END)
-
     def setup_graph(self, usecase: str):
         """
         Sets up the graph for the selected use case.
