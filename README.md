@@ -11,7 +11,6 @@ pinned: false
 ---
 
 
-<<<<<<< HEAD
 
 
 # AgenticAI ChatBot – AI News Explorer with LangGraph
@@ -282,4 +281,4 @@ Edit `/src/streamlit_app.py` to customize this app to your heart's desire. :hear
 
 If you have any questions, checkout our [documentation](https://docs.streamlit.io) and [community
 forums](https://discuss.streamlit.io).
->>>>>>> 2ef0babec8e22d3b3ff6f3f9c1725442a41b7faa
+
