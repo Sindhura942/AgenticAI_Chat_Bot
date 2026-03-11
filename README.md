@@ -3,8 +3,8 @@ title: Agentic AI Chat Bot
 emoji: 🤖
 colorFrom: green
 colorTo: blue
-sdk: streamlit
-sdk_version: "1.30.0"
+sdk: streamlit        
+sdk_version: "1.30.0"  
 python_version: "3.10"
 app_file: app.py
 pinned: false
@@ -241,8 +241,6 @@ MIT License - feel free to use this project for personal or commercial purposes.
 
 ## 📧 Support
 For issues, questions, or suggestions, please open an issue on GitHub.
-
-
 
 **Made with ❤️ using LangGraph, Streamlit, and AI**
 
