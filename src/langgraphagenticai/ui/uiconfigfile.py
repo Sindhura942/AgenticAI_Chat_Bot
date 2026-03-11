@@ -1,0 +1,24 @@
+import configparser
+import os
+
+
+class Config:
+    def __init__(self):
+        self.config = configparser.ConfigParser()
+        config_path = os.path.join(os.path.dirname(__file__), 'uiconfigfile.ini')
+        self.config.read(config_path)
+
+    def get_page_title(self):
+        return self.config.get('DEFAULT', 'PAGE_TITLE')
+
+    def get_llm_options(self):
+        return [x.strip() for x in self.config.get('DEFAULT', 'LLM_OPTIONS').split(',')]
+
+    def get_usecase_options(self):
+        return [x.strip() for x in self.config.get('DEFAULT', 'USECASE_OPTIONS').split(',')]
+
+    def get_groq_model_options(self):
+        return [x.strip() for x in self.config.get('DEFAULT', 'GROQ_MODEL_OPTIONS').split(',')]
+
+    def get_openai_model_options(self):
+        return [x.strip() for x in self.config.get('DEFAULT', 'OpenAI_MODEL_OPTIONS').split(',')]
