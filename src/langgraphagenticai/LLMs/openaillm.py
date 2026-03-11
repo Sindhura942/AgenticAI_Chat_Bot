@@ -9,14 +9,21 @@ class OpenAILLM:
 
     def get_llm_model(self):
         try:
-            openai_api_key = self.user_controls.get("API_KEY_OPENAI")
+            openai_api_key = self.user_controls.get("API_KEY_OPENAI", "").strip()
             selected_openai_model = self.user_controls.get("selected_openai_model")
             
-            if openai_api_key == '' and os.environ.get("OPENAI_API_KEY") == '':
-                st.error("⚠️ Please enter your OpenAI API key to proceed.")
+            # Use environment variable if user didn't provide key
+            if not openai_api_key:
+                openai_api_key = os.environ.get("OPENAI_API_KEY", "").strip()
+            
+            # Check if we have a valid API key
+            if not openai_api_key:
+                st.error("⚠️ Please enter your OpenAI API key in the UI or set OPENAI_API_KEY environment variable.")
+                return None
             
             llm = ChatOpenAI(api_key=openai_api_key, model=selected_openai_model)
         except Exception as e:
+            st.error(f"Error initializing OpenAI LLM: {str(e)}")
             raise ValueError(f"Error initializing OpenAI LLM: {str(e)}")
         
         return llm
