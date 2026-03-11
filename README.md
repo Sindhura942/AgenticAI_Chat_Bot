@@ -15,18 +15,6 @@ pinned: false
 
 # AgenticAI ChatBot – AI News Explorer with LangGraph
 
----
-title: Agentic AI Chat Bot
-emoji: 🤖
-colorFrom: green
-colorTo: blue
-sdk: streamlit          # or gradio if your app uses Gradio
-sdk_version: "1.30.0"   # the version of Streamlit or Gradio you are using
-python_version: "3.10"
-app_file: app.py
-pinned: false
----
-
 ![Python](https://img.shields.io/badge/Python-3.11-blue)
 ![LangGraph](https://img.shields.io/badge/LangGraph-Agent%20Framework-green)
 ![Streamlit](https://img.shields.io/badge/Streamlit-Web%20App-red)
