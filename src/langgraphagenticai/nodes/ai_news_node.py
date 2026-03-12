@@ -22,10 +22,17 @@ class AINewsNode:
         Returns:
             dict: Updated state with 'news_data' key containing fetched news.
         """
-        frequency = state['messages'][0].content.lower()
-        self.state['frequency'] = frequency
+        frequency = state['messages'][0].content.lower().strip()
+        
+        # Map frequency to time range
         time_range_map = {'daily': 'd', 'weekly': 'w', 'monthly': 'm', 'year': 'y'}
         days_map = {'daily': 1, 'weekly': 7, 'monthly': 30, 'year': 366}
+        
+        # Validate frequency and set default if invalid
+        if frequency not in time_range_map:
+            frequency = 'daily'  # Default to daily if invalid
+        
+        self.state['frequency'] = frequency
 
         response = self.tavily.search(
             query="Top Artificial Intelligence (AI) technology news India and globally",
